@@ -2,7 +2,19 @@ use gtk::glib;
 use glib::{closure, Object};
 use gtk::prelude::*;
 
-use gtk::{Application, ApplicationWindow, ColumnView, ColumnViewColumn, Label, PolicyType, SignalListItemFactory, ScrolledWindow, SingleSelection, StringList, StringObject, Widget};
+use gtk::{ Application
+         , ApplicationWindow
+         , ColumnView
+         , ColumnViewColumn
+         , Label
+         , PolicyType
+         , SignalListItemFactory
+         , ScrolledWindow
+         , SingleSelection
+         , StringList
+         , StringObject
+         , Widget
+         };
 
 
 fn build_ui(app: &Application) {
@@ -36,8 +48,8 @@ fn build_ui(app: &Application) {
             .bind(&label, "label", Widget::NONE);
     });
 
-    let column_view_column = ColumnViewColumn::new(Some("column1"), Some(&factory1));
-    column_view.append_column(&column_view_column);
+    let column1 = ColumnViewColumn::new(Some("column1"), Some(&factory1));
+    column_view.append_column(&column1);
 
     let factory2 = SignalListItemFactory::new();
     factory2.connect_setup(move |_, list_item| {
@@ -52,8 +64,8 @@ fn build_ui(app: &Application) {
             .bind(&label, "label", Widget::NONE);
     });
 
-    let column_view_column2 = ColumnViewColumn::new(Some("column2"), Some(&factory2));
-    column_view.append_column(&column_view_column2);
+    let column2 = ColumnViewColumn::new(Some("column2"), Some(&factory2));
+    column_view.append_column(&column2);
 
     let scrolled_window = ScrolledWindow::builder()
         .hscrollbar_policy(PolicyType::Never) // Disable horizontal scrolling
