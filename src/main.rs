@@ -55,7 +55,7 @@ fn build_ui(app: &Application) {
     let column_view_column2 = ColumnViewColumn::new(Some("column2"), Some(&factory2));
     column_view.append_column(&column_view_column2);
 
-	let scrolled_window = ScrolledWindow::builder()
+    let scrolled_window = ScrolledWindow::builder()
         .hscrollbar_policy(PolicyType::Never) // Disable horizontal scrolling
         .min_content_width(360)
         .child(&column_view)
