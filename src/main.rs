@@ -49,6 +49,7 @@ fn build_ui(app: &Application) {
     });
 
     let column1 = ColumnViewColumn::new(Some("column1"), Some(&factory1));
+    column1.set_resizable(true);
     column_view.append_column(&column1);
 
     let factory2 = SignalListItemFactory::new();
@@ -65,6 +66,7 @@ fn build_ui(app: &Application) {
     });
 
     let column2 = ColumnViewColumn::new(Some("column2"), Some(&factory2));
+    column2.set_resizable(true);
     column_view.append_column(&column2);
 
     let scrolled_window = ScrolledWindow::builder()
